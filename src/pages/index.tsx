@@ -56,3 +56,15 @@ export default function Home() {
     </HomeContainer>
   );
 }
+
+export const getServerSideProps = async () => {
+
+  await new Promise(resolve => setTimeout(resolve, 2000))
+
+  return {
+    props: {
+      lista: [1, 2, 3]
+    }
+  }
+
+};
