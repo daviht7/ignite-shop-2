@@ -1,8 +1,7 @@
 import { stripe } from "@/lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product";
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Stripe from "stripe";
 
 interface ProductProps {
@@ -15,9 +14,16 @@ interface ProductProps {
   }
 }
 
-export default function Product({ product }: ProductProps) {
+export const getStaticPaths: GetStaticPaths = async () => {
 
-  const { query } = useRouter();
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+
+}
+
+export default function Product({ product }: ProductProps) {
 
   return (
     <ProductContainer>
