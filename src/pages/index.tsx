@@ -4,7 +4,6 @@ import { HomeContainer, Product } from '../styles/pages/home';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { GetStaticProps } from "next";
-import Link from "next/link";
 import Stripe from "stripe";
 
 import { stripe } from "@/lib/stripe";
@@ -15,7 +14,7 @@ interface HomeProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[]
 }
 
